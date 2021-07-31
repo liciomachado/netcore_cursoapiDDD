@@ -18,12 +18,13 @@ namespace Api.CrossCuting.Mappings
             CreateMap<UfDto, UfEntity>().ReverseMap();
 
             CreateMap<MunicipioDto, MunicipioEntity>().ReverseMap();
-            CreateMap<MunicipioDtoCreateResult, UserEntity>().ReverseMap();
-            CreateMap<MunicipioDtoUpdateResult, UserEntity>().ReverseMap();
+            CreateMap<MunicipioDtoCompleto, MunicipioEntity>().ReverseMap();
+            CreateMap<MunicipioDtoCreateResult, MunicipioEntity>().ReverseMap();
+            CreateMap<MunicipioDtoUpdateResult, MunicipioEntity>().ReverseMap();
 
             CreateMap<CepDto, CepEntity>().ReverseMap();
-            CreateMap<CepDtoCreateResult, UserEntity>().ReverseMap();
-            CreateMap<CepDtoUpdateResult, UserEntity>().ReverseMap();
+            CreateMap<CepDtoCreateResult, CepEntity>().ReverseMap();
+            CreateMap<CepDtoUpdateResult, CepEntity>().ReverseMap();
         }
     }
 }
