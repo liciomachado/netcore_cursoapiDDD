@@ -15,6 +15,9 @@ namespace Api.CrossCuting.DependencyInjection
         {
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             serviceCollection.AddScoped<IUserRepository, UserImplementation>();
+            serviceCollection.AddScoped<IUfRepository, UfImplementation>();
+            serviceCollection.AddScoped<IMunicipioRepository, MunicipioImplementation>();
+            serviceCollection.AddScoped<ICepRepository, CepImplementation>();
 
             if (Environment.GetEnvironmentVariable("DATABASE").ToLower() == "MYSQL".ToLower())
             {
