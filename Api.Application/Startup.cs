@@ -84,7 +84,7 @@ namespace application
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Curso de APi com aspNetCore 3.1 - Prática",
+                    Title = "Curso de APi com aspNetCore 3.1/ .NET 5.0 - Prática",
                     Description = "Arquitetura DDD",
                     TermsOfService = new Uri("http://github.com/liciomachado"),
                     Contact = new OpenApiContact

@@ -6,6 +6,7 @@ using Api.Domain.Interfaces;
 using Api.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace Api.CrossCuting.DependencyInjection
 {
@@ -19,17 +20,18 @@ namespace Api.CrossCuting.DependencyInjection
             serviceCollection.AddScoped<IMunicipioRepository, MunicipioImplementation>();
             serviceCollection.AddScoped<ICepRepository, CepImplementation>();
 
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 20));
             if (Environment.GetEnvironmentVariable("DATABASE").ToLower() == "MYSQL".ToLower())
             {
                 serviceCollection.AddDbContext<MyContext>(
-                    options => options.UseMySql(Environment.GetEnvironmentVariable("DB_CONNECTION"))
+                    options => options.UseMySql(Environment.GetEnvironmentVariable("DB_CONNECTION"), serverVersion)
                 );
             }
             else
             {
                 //usar sqlserver aqui
                 serviceCollection.AddDbContext<MyContext>(
-                    options => options.UseMySql(Environment.GetEnvironmentVariable("DB_CONNECTION"))
+                    options => options.UseMySql(Environment.GetEnvironmentVariable("DB_CONNECTION"), serverVersion)
                 );
             }
         }
